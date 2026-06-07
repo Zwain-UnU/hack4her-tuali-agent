@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             // 4.3 Llamada a FastAPI en localhost
-            const response = await fetch('http://localhost:8000/api/chat', {
+            const response = await fetch("https://hack4her-tuali-agent.onrender.com/api/chat", {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: trimmed })
