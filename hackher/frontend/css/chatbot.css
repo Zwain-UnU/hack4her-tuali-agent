@@ -1,0 +1,278 @@
+/* =============================================
+   TUALI CHATBOT - chatbot.css
+   Agente de Crecimiento Tuali | Hack4Her 2026
+   ============================================= */
+
+/* Botón flotante */
+#tuali-floating-chat-btn {
+    position: fixed;
+    bottom: 105px;
+    right: 45px;
+    width: 65px;
+    height: 65px;
+    background-color: #E61D24;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+    z-index: 999999;
+    transition: transform 0.2s;
+}
+#tuali-floating-chat-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Ventana de Chat */
+#tuali-chat-container {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 380px;
+    height: 540px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    /* CORRECCIÓN: display:none aquí, el JS lo cambia a flex al abrir */
+    display: none;
+    flex-direction: column;
+    z-index: 999999;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+/* Encabezado */
+#tuali-chat-header {
+    background-color: #E61D24;
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+#tuali-close-chat {
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 1;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+#tuali-close-chat:hover {
+    opacity: 1;
+}
+
+/* Cuerpo de Mensajes */
+#tuali-chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f7f9fa;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    /* CORRECCIÓN: min-height 0 evita que el flex no haga scroll */
+    min-height: 0;
+}
+
+/* Burbujas de chat - base */
+.tuali-msg {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+/* Burbuja del bot */
+.tuali-msg.bot,
+.tuali-bot {
+    background-color: #eef2f5;
+    color: #1a1a1a;
+    align-self: flex-start;
+    border-top-left-radius: 0px;
+}
+
+/* Burbuja del usuario */
+.tuali-msg.user,
+.tuali-user {
+    background-color: #E61D24;
+    color: white;
+    align-self: flex-end;
+    border-top-right-radius: 0px;
+}
+
+/* Burbuja de "Escribiendo..." */
+.tuali-thinking {
+    background-color: #eef2f5;
+    color: #777;
+    align-self: flex-start;
+    border-top-left-radius: 0px;
+    font-style: italic;
+}
+
+/* Chips (burbujas de sugerencias) */
+/* CORRECCIÓN: una sola regla consolidada, sin duplicados que se pisaban */
+#tuali-chips-container {
+    display: flex;
+    gap: 8px;
+    padding: 10px 12px;
+    background-color: #fff;
+    overflow-x: auto;
+    border-top: 1px solid #e1e8ed;
+    white-space: nowrap;
+    flex-shrink: 0;
+    /* Ocultar scrollbar pero mantener funcionalidad */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+#tuali-chips-container::-webkit-scrollbar {
+    display: none;
+}
+
+.tuali-chip-btn {
+    background-color: white;
+    color: #E61D24;
+    border: 1.5px solid #E61D24;
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.tuali-chip-btn:hover {
+    background-color: #E61D24;
+    color: white;
+    box-shadow: 0 3px 8px rgba(230,29,36,0.3);
+}
+
+/* Barra de entrada de texto */
+#tuali-input-area {
+    display: flex;
+    padding: 12px;
+    background: white;
+    border-top: 1px solid #e1e8ed;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 6px;
+}
+#tuali-chat-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccd6dd;
+    border-radius: 24px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+#tuali-chat-input:focus {
+    border-color: #E61D24;
+}
+#tuali-send-btn {
+    background: #E61D24;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 9px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s, transform 0.1s;
+    flex-shrink: 0;
+}
+#tuali-send-btn:hover {
+    background: #c41920;
+    transform: scale(1.05);
+}
+
+/* ---- Tarjetas de Producto ---- */
+.product-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 12px 10px;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    width: 100%;
+    box-sizing: border-box;
+}
+.product-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+.product-card h4 {
+    margin: 6px 0 2px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+.product-info {
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 8px;
+}
+.add-to-cart-btn {
+    background-color: #22c55e;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 15px;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+.add-to-cart-btn:hover {
+    background-color: #16a34a;
+}
+
+/* ---- Barra de Metas ---- */
+.goal-container {
+    width: 100%;
+    background: #e0e0e0;
+    border-radius: 10px;
+    height: 22px;
+    margin: 8px 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.goal-bar {
+    background: linear-gradient(90deg, #E61D24, #f87171);
+    height: 100%;
+    text-align: center;
+    color: white;
+    font-size: 11px;
+    line-height: 22px;
+    font-weight: bold;
+    transition: width 1s ease-in-out;
+    min-width: fit-content;
+    padding: 0 6px;
+    box-sizing: border-box;
+}
+
+/* ---- Scrollbar personalizado en mensajes ---- */
+#tuali-chat-messages::-webkit-scrollbar {
+    width: 4px;
+}
+#tuali-chat-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+#tuali-chat-messages::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 4px;
+}
