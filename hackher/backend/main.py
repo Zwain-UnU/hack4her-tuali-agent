@@ -41,7 +41,7 @@ app.add_middleware(
 )
 
 # ── 2. API KEY ───────────────────────────────────────────────────────────────
-GOOGLE_API_KEY = "AQ.Ab8RN6LCrSu3V04nydMxW7lBg6FbuqWjUvr43mVrWlWoP2t1nQ"
+GOOGLE_API_KEY = "AQ.Ab8RN6I4JveUhXrtKQsSvRMfkjukaH3RNPY-c0jvTCFuTiAUvA"
 
 if USING_NEW_SDK:
     client = genai.Client(api_key=GOOGLE_API_KEY)
